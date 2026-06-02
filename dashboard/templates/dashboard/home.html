@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kubernetes Dashboard</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#0f172a;
+            color:white;
+            padding:40px;
+        }
+
+        h1{
+            color:#38bdf8;
+        }
+
+        table{
+            width:100%;
+            border-collapse: collapse;
+            margin-top:20px;
+            background:#1e293b;
+        }
+
+        th, td{
+            border:1px solid #334155;
+            padding:12px;
+            text-align:left;
+        }
+
+        th{
+            background:#0284c7;
+        }
+
+        tr:hover{
+            background:#334155;
+        }
+
+        .status{
+            font-weight:bold;
+            color:#22c55e;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>☸ Kubernetes Dashboard</h1>
+
+    <table>
+
+        <tr>
+            <th>Pod Name</th>
+            <th>Namespace</th>
+            <th>Status</th>
+        </tr>
+
+        {% for pod in pods %}
+
+        <tr>
+            <td>{{ pod.name }}</td>
+            <td>{{ pod.namespace }}</td>
+            <td class="status">{{ pod.status }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
